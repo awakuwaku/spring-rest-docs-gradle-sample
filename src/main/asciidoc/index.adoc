@@ -1,0 +1,18 @@
+= API Document
+
+[[greeting]]
+== Greeting
+
+時刻に応じたあいさつを返す
+
+=== Request Parameter
+include::{snippets}/greeting/doc/request-parameters.adoc[]
+
+=== Response Fields
+include::{snippets}/greeting/doc/response-fields.adoc[]
+
+=== Example request
+include::{snippets}/greeting/doc/curl-request.adoc[]
+
+=== Example response
+include::{snippets}/greeting/doc/http-response.adoc[]
