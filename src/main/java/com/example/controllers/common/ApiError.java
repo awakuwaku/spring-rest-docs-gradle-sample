@@ -1,33 +1,33 @@
 package com.example.controllers.common;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
 
 @Data
 public class ApiError implements Serializable {
-    private final String message;
+  private static final long serialVersionUID = -574573130845747456L;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private final String target;
+  private final String message;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private final List<ApiError> details = new ArrayList<>();
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)
+  private final String target;
 
-    public ApiError(String message, String target) {
-        this.message = message;
-        this.target = target;
-    }
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)
+  private final List<ApiError> details = new ArrayList<>();
 
-    public ApiError(String message) {
-        this(message, null);
-    }
+  public ApiError(String message, String target) {
+    this.message = message;
+    this.target = target;
+  }
 
-    public void addDetail(ApiError apiError) {
-        details.add(apiError);
-    }
+  public ApiError(String message) {
+    this(message, null);
+  }
+
+  public void addDetail(ApiError apiError) {
+    details.add(apiError);
+  }
 }
