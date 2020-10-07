@@ -28,8 +28,8 @@ def projectName = 'spring-rest-docs-gradle-sample'
 def projectVersion = '0.0.1-SNAPSHOT'
 
 jar {
-  baseName = projectName
-  version = projectVersion
+  archiveBaseName = projectName
+  archiveVersion = projectVersion
 }
 
 sourceCompatibility = jdkVersion
@@ -64,8 +64,7 @@ ext {
 
 asciidoctor {
   sourceDir 'src/main/asciidoc'
-  attributes \
-    'snippets': snippetsDir
+  attributes 'snippets' : snippetsDir
 }
 
 ///////////////////////
