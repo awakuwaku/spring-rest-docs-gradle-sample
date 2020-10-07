@@ -37,42 +37,42 @@ public class GreetingControllerTest {
   @Test
   public void GoodMorning下限_正常系() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "5")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good morning"));
   }
 
   @Test
   public void GoodMorning上限_正常系() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "15")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good morning"));
   }
 
   @Test
   public void GoodNight下限1_正常系() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "0")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good night"));
   }
 
   @Test
   public void GoodNight下限2_正常系() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "16")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good night"));
   }
 
   @Test
   public void GoodNight上限1_正常系() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "4")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good night"));
   }
 
   @Test
   public void doc() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "24")).andExpect(status().isOk())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.greeting").value("good night"))
         .andDo(document("greeting/{method-name}",
             responseFields(fieldWithPath("greeting").type(JsonFieldType.STRING)
@@ -82,19 +82,19 @@ public class GreetingControllerTest {
   @Test
   public void 入力値範囲外_下限越え() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "-1")).andExpect(status().isBadRequest())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON));
   }
 
   @Test
   public void 入力値範囲外_上限超え() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "25")).andExpect(status().isBadRequest())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON));
   }
 
   @Test
   public void 入力値範囲外_数値外入力() throws Exception {
     this.mockMvc.perform(get("/greeting").param("hour", "123abc"))
         .andExpect(status().isBadRequest())
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON));
   }
 }
