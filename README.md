@@ -6,12 +6,12 @@ Spring REST Docs の Gradle Build Sample
 -   JDK
     - [OpenJDK (11.0.x)](http://openjdk.java.net/)
 -   Build Tool
-    - [Gradle (5.0)](https://gradle.org/)
+    - [Gradle (6.6.1)](https://gradle.org/)
 -   Framework
-    - [Spring Boot (2.1.1.RELEASE)](https://spring.io/projects/spring-boot)
-    - [Spring REST Docs (2.0.2.RELEASE)](https://spring.io/projects/spring-restdocs)
+    - [Spring Boot (2.3.4.RELEASE)](https://spring.io/projects/spring-boot)
+    - [Spring REST Docs (2.0.5.RELEASE)](https://spring.io/projects/spring-restdocs)
 -   IDE
-    -   [Eclipse (4.9.x)](http://www.eclipse.org/home/index.php) + [Spring Tools](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
+    -   [Eclipse (2020‑09)](http://www.eclipse.org/home/index.php) + [Spring Tools](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
 
 
 # 利用方法
